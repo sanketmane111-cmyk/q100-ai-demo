@@ -4,26 +4,26 @@ import { Card } from "@/components/ui/card";
 const features = [
   {
     icon: CheckCircle2,
-    title: "Absence/Presence Detection",
-    description: "Verify the presence of critical components like nuts, bolts, holes, grommets, zip ties, screws, and wirings.",
+    title: "Component Detection",
+    description: "Verify nuts, bolts, holes, screws, and wirings instantly.",
     color: "text-success"
   },
   {
     icon: AlertTriangle,
     title: "Defect Detection",
-    description: "Identify surface defects including scratches, peeling, and other imperfections automatically.",
+    description: "Identify scratches, peeling, and surface defects.",
     color: "text-destructive"
   },
   {
     icon: Palette,
-    title: "Color & Finish Verification",
-    description: "Ensure consistent color and surface finish across all manufactured products.",
+    title: "Finish Verification",
+    description: "Ensure consistent color and surface finish.",
     color: "text-secondary"
   },
   {
     icon: Scan,
-    title: "QR Code Verification",
-    description: "Validate QR codes and barcodes to ensure proper product identification and traceability.",
+    title: "QR Code Check",
+    description: "Validate QR codes and product identification.",
     color: "text-primary"
   }
 ];
@@ -32,13 +32,9 @@ export const Features = () => {
   return (
     <section className="py-20 px-4 bg-muted/50">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-foreground">
-          Comprehensive Quality Inspection
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
+          Complete Quality Control
         </h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Powered by advanced AI, Q100.AI provides multiple inspection categories to ensure 
-          complete quality control across your manufacturing line.
-        </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (

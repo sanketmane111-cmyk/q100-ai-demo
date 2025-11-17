@@ -20,13 +20,8 @@ export const Hero = ({ onStartDemo }: { onStartDemo: () => void }) => {
           </span>
         </h1>
 
-        <p className="text-xl md:text-2xl text-center text-muted-foreground mb-8 max-w-3xl mx-auto">
-          End-of-Line Assembly & Quality Inspection Tool for Manufacturing Industries
-        </p>
-
-        <p className="text-lg text-center text-foreground/80 mb-12 max-w-2xl mx-auto">
-          Revolutionize your quality control process with AI-powered visual inspection. 
-          Compare products against master images, detect defects, and ensure perfect assembly every time.
+        <p className="text-xl md:text-2xl text-center text-muted-foreground mb-12 max-w-3xl mx-auto font-medium">
+          AI-Powered Quality Inspection for Manufacturing
         </p>
 
         <div className="flex justify-center">
