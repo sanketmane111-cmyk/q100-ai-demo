@@ -58,7 +58,8 @@ export const MasterImageUpload = ({ onUpload }: MasterImageUploadProps) => {
               </Button>
               <Button
                 onClick={handleUpload}
-                className="flex-1 bg-[var(--gradient-primary)]"
+                variant="gradient"
+                className="flex-1"
               >
                 Proceed to Parameters
               </Button>

@@ -108,7 +108,8 @@ export const InspectionCapture = ({ masterImage, onCapture, onBack }: Inspection
         <Button 
           onClick={handleCapture} 
           disabled={!testImage}
-          className="gap-2 bg-[var(--gradient-primary)]"
+          variant="gradient"
+          className="gap-2"
         >
           <Upload className="w-4 h-4" />
           Analyze Images

@@ -32,8 +32,9 @@ export const Hero = ({ onStartDemo }: { onStartDemo: () => void }) => {
         <div className="flex justify-center">
           <Button 
             onClick={onStartDemo}
-            size="lg" 
-            className="text-lg px-8 py-6 bg-[var(--gradient-primary)] hover:opacity-90 transition-opacity"
+            size="lg"
+            variant="gradient"
+            className="text-lg px-8 py-6"
           >
             Try Interactive Demo
           </Button>

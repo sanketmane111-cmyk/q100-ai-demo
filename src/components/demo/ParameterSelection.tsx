@@ -120,7 +120,8 @@ export const ParameterSelection = ({ masterImage, onNext, onBack }: ParameterSel
         <Button 
           onClick={handleNext} 
           disabled={!hasSelection}
-          className="gap-2 bg-[var(--gradient-primary)]"
+          variant="gradient"
+          className="gap-2"
         >
           Start Inspection
           <ArrowRight className="w-4 h-4" />

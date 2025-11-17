@@ -140,7 +140,8 @@ export const InspectionResults = ({
         <Button 
           onClick={onReset}
           size="lg"
-          className="gap-2 bg-[var(--gradient-primary)]"
+          variant="gradient"
+          className="gap-2"
         >
           <RotateCcw className="w-4 h-4" />
           Start New Inspection
