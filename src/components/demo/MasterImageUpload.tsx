@@ -42,26 +42,26 @@ export const MasterImageUpload = ({ onUpload }: MasterImageUploadProps) => {
         />
       )}
       
-      <Card className="p-8 max-w-2xl mx-auto bg-card border-border">
-        <div className="text-center mb-6">
-          <ImageIcon className="w-16 h-16 mx-auto mb-4 text-primary" />
-          <h3 className="text-2xl font-semibold mb-2 text-card-foreground">Upload Master Image</h3>
-          <p className="text-muted-foreground">
+      <Card className="p-4 sm:p-8 max-w-2xl mx-auto bg-card border-border">
+        <div className="text-center mb-4 sm:mb-6">
+          <ImageIcon className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 text-primary" />
+          <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-card-foreground">Upload Master Image</h3>
+          <p className="text-sm sm:text-base text-muted-foreground">
             Upload a reference image of the perfect product for comparison
           </p>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {preview ? (
-            <div className="space-y-4">
-              <div className="aspect-video w-full overflow-hidden rounded-lg border-2 border-border bg-muted">
+            <div className="space-y-3 sm:space-y-4">
+              <div className="w-full overflow-hidden rounded-lg border-2 border-border bg-muted">
                 <img 
                   src={preview} 
                   alt="Master preview" 
-                  className="w-full h-full object-contain"
+                  className="w-full h-auto"
                 />
               </div>
-              <div className="flex gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button
                   onClick={() => setPreview(null)}
                   variant="outline"
@@ -79,12 +79,12 @@ export const MasterImageUpload = ({ onUpload }: MasterImageUploadProps) => {
               </div>
             </div>
           ) : (
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <label className="block">
-                <div className="border-2 border-dashed border-border rounded-lg p-12 text-center cursor-pointer hover:border-primary transition-colors bg-muted/50">
-                  <Upload className="w-12 h-12 mx-auto mb-4 text-muted-foreground" />
-                  <p className="text-foreground mb-2">Click to upload or drag and drop</p>
-                  <p className="text-sm text-muted-foreground">PNG, JPG up to 10MB</p>
+                <div className="border-2 border-dashed border-border rounded-lg p-8 sm:p-12 text-center cursor-pointer hover:border-primary transition-colors bg-muted/50">
+                  <Upload className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-3 sm:mb-4 text-muted-foreground" />
+                  <p className="text-sm sm:text-base text-foreground mb-2">Click to upload or drag and drop</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">PNG, JPG up to 10MB</p>
                 </div>
                 <input
                   type="file"
@@ -95,7 +95,7 @@ export const MasterImageUpload = ({ onUpload }: MasterImageUploadProps) => {
               </label>
               
               <div className="text-center">
-                <span className="text-muted-foreground">or</span>
+                <span className="text-sm text-muted-foreground">or</span>
               </div>
               
               <Button
