@@ -44,48 +44,48 @@ export const InspectionCapture = ({ masterImage, onCapture, onBack }: Inspection
         />
       )}
       
-      <div className="max-w-5xl mx-auto">
-        <Card className="p-6 bg-card border-border mb-6">
-          <h3 className="text-xl font-semibold mb-4 text-center text-card-foreground">
+      <div className="max-w-5xl mx-auto px-2 sm:px-4">
+        <Card className="p-4 sm:p-6 bg-card border-border mb-4 sm:mb-6">
+          <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-4 text-center text-card-foreground">
             Compare with Master Image
           </h3>
-          <p className="text-center text-muted-foreground mb-6">
+          <p className="text-center text-muted-foreground text-sm sm:text-base">
             Keep the master image visible while capturing your test image for accurate comparison
           </p>
         </Card>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          <Card className="p-6 bg-card border-border">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-card-foreground">Master Image</h3>
-              <span className="px-3 py-1 bg-success/10 text-success text-sm rounded-full font-medium">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          <Card className="p-4 sm:p-6 bg-card border-border">
+            <div className="flex items-center justify-between mb-3 sm:mb-4">
+              <h3 className="text-base sm:text-lg font-semibold text-card-foreground">Master Image</h3>
+              <span className="px-2 sm:px-3 py-1 bg-success/10 text-success text-xs sm:text-sm rounded-full font-medium">
                 Reference
               </span>
             </div>
-            <div className="aspect-video w-full overflow-hidden rounded-lg border border-border bg-muted">
+            <div className="w-full overflow-hidden rounded-lg border border-border bg-muted">
               <img 
                 src={masterImage} 
                 alt="Master reference" 
-                className="w-full h-full object-contain"
+                className="w-full h-auto"
               />
             </div>
           </Card>
 
-          <Card className="p-6 bg-card border-border">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-card-foreground">Test Image</h3>
-              <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full font-medium">
+          <Card className="p-4 sm:p-6 bg-card border-border">
+            <div className="flex items-center justify-between mb-3 sm:mb-4">
+              <h3 className="text-base sm:text-lg font-semibold text-card-foreground">Test Image</h3>
+              <span className="px-2 sm:px-3 py-1 bg-primary/10 text-primary text-xs sm:text-sm rounded-full font-medium">
                 Capture
               </span>
             </div>
             
             {testImage ? (
-              <div className="space-y-4">
-                <div className="aspect-video w-full overflow-hidden rounded-lg border-2 border-primary bg-muted">
+              <div className="space-y-3 sm:space-y-4">
+                <div className="w-full overflow-hidden rounded-lg border-2 border-primary bg-muted">
                   <img 
                     src={testImage} 
                     alt="Test capture" 
-                    className="w-full h-full object-contain"
+                    className="w-full h-auto"
                   />
                 </div>
                 <Button
@@ -97,12 +97,12 @@ export const InspectionCapture = ({ masterImage, onCapture, onBack }: Inspection
                 </Button>
               </div>
             ) : (
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <label className="block">
-                  <div className="aspect-video border-2 border-dashed border-border rounded-lg flex flex-col items-center justify-center cursor-pointer hover:border-primary transition-colors bg-muted/50">
-                    <Upload className="w-12 h-12 mb-4 text-muted-foreground" />
-                    <p className="text-foreground mb-2">Upload Test Image</p>
-                    <p className="text-sm text-muted-foreground">PNG, JPG up to 10MB</p>
+                  <div className="min-h-[200px] sm:min-h-[300px] border-2 border-dashed border-border rounded-lg flex flex-col items-center justify-center cursor-pointer hover:border-primary transition-colors bg-muted/50 p-4">
+                    <Upload className="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 text-muted-foreground" />
+                    <p className="text-sm sm:text-base text-foreground mb-2">Upload Test Image</p>
+                    <p className="text-xs sm:text-sm text-muted-foreground">PNG, JPG up to 10MB</p>
                   </div>
                   <input
                     type="file"
@@ -113,7 +113,7 @@ export const InspectionCapture = ({ masterImage, onCapture, onBack }: Inspection
                 </label>
                 
                 <div className="text-center">
-                  <span className="text-muted-foreground">or</span>
+                  <span className="text-sm text-muted-foreground">or</span>
                 </div>
                 
                 <Button
@@ -129,8 +129,8 @@ export const InspectionCapture = ({ masterImage, onCapture, onBack }: Inspection
           </Card>
         </div>
 
-        <div className="flex gap-4 mt-6 justify-center">
-          <Button onClick={onBack} variant="outline" className="gap-2">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4 sm:mt-6 justify-center">
+          <Button onClick={onBack} variant="outline" className="gap-2 w-full sm:w-auto">
             <ArrowLeft className="w-4 h-4" />
             Back
           </Button>
@@ -138,7 +138,7 @@ export const InspectionCapture = ({ masterImage, onCapture, onBack }: Inspection
             onClick={handleCapture} 
             disabled={!testImage}
             variant="gradient"
-            className="gap-2"
+            className="gap-2 w-full sm:w-auto"
           >
             <Upload className="w-4 h-4" />
             Analyze Images
