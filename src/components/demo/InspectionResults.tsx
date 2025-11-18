@@ -61,75 +61,80 @@ export const InspectionResults = ({
   const warningCount = results.filter(r => r.status === "warning").length;
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <Card className="p-6 bg-card border-border mb-6">
-        <h3 className="text-2xl font-semibold mb-4 text-center text-card-foreground">
-          Inspection Results
+    <div className="max-w-6xl mx-auto px-2 sm:px-4">
+      <Card className="p-4 sm:p-6 bg-card border-border mb-4 sm:mb-6">
+        <h3 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-center text-card-foreground">
+          Analysis Results
         </h3>
-        <div className="flex justify-center gap-6 mb-4">
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-5 h-5 text-success" />
-            <span className="text-foreground"><span className="font-bold">{passCount}</span> Passed</span>
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-6">
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-success flex-shrink-0" />
+            <span className="text-sm sm:text-base text-foreground whitespace-nowrap">
+              <span className="font-bold">{passCount}</span> Passed
+            </span>
           </div>
-          <div className="flex items-center gap-2">
-            <AlertTriangle className="w-5 h-5 text-warning" />
-            <span className="text-foreground"><span className="font-bold">{warningCount}</span> Warnings</span>
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <AlertTriangle className="w-4 h-4 sm:w-5 sm:h-5 text-warning flex-shrink-0" />
+            <span className="text-sm sm:text-base text-foreground whitespace-nowrap">
+              <span className="font-bold">{warningCount}</span> Warning
+            </span>
           </div>
-          <div className="flex items-center gap-2">
-            <XCircle className="w-5 h-5 text-destructive" />
-            <span className="text-foreground"><span className="font-bold">{failCount}</span> Failed</span>
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <XCircle className="w-4 h-4 sm:w-5 sm:h-5 text-destructive flex-shrink-0" />
+            <span className="text-sm sm:text-base text-foreground whitespace-nowrap">
+              <span className="font-bold">{failCount}</span> Failed
+            </span>
           </div>
         </div>
       </Card>
 
-      <div className="grid md:grid-cols-2 gap-6 mb-6">
-        <Card className="p-6 bg-card border-border">
-          <h4 className="text-lg font-semibold mb-4 text-card-foreground">Master Image</h4>
-          <div className="aspect-video w-full overflow-hidden rounded-lg border border-border bg-muted">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
+        <Card className="p-4 sm:p-6 bg-card border-border">
+          <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-card-foreground">Reference</h4>
+          <div className="w-full overflow-hidden rounded-lg border border-border bg-muted">
             <img 
               src={masterImage} 
-              alt="Master" 
-              className="w-full h-full object-contain"
+              alt="Reference" 
+              className="w-full h-auto"
             />
           </div>
         </Card>
 
-        <Card className="p-6 bg-card border-border">
-          <h4 className="text-lg font-semibold mb-4 text-card-foreground">Test Image</h4>
-          <div className="aspect-video w-full overflow-hidden rounded-lg border border-border bg-muted">
+        <Card className="p-4 sm:p-6 bg-card border-border">
+          <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-card-foreground">Inspected</h4>
+          <div className="w-full overflow-hidden rounded-lg border border-border bg-muted">
             <img 
               src={testImage} 
-              alt="Test" 
-              className="w-full h-full object-contain"
+              alt="Inspected" 
+              className="w-full h-auto"
             />
           </div>
         </Card>
       </div>
 
-      <Card className="p-6 bg-card border-border mb-6">
-        <h4 className="text-lg font-semibold mb-4 text-card-foreground">Detailed Analysis</h4>
-        <div className="space-y-3">
+      <Card className="p-4 sm:p-6 bg-card border-border mb-4 sm:mb-6">
+        <h4 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-card-foreground">Parameter Results</h4>
+        <div className="space-y-2 sm:space-y-3">
           {results.map((result, index) => (
             <div 
               key={index}
-              className="flex items-center justify-between p-4 rounded-lg border border-border bg-muted/50"
+              className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 rounded-lg border border-border bg-muted/50"
             >
-              <div className="flex items-center gap-4">
-                {result.status === "pass" && <CheckCircle2 className="w-5 h-5 text-success flex-shrink-0" />}
-                {result.status === "warning" && <AlertTriangle className="w-5 h-5 text-warning flex-shrink-0" />}
-                {result.status === "fail" && <XCircle className="w-5 h-5 text-destructive flex-shrink-0" />}
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="font-semibold text-foreground">{result.parameter}</span>
-                    <Badge 
-                      variant="outline"
-                      className="text-xs"
-                    >
-                      {result.category}
-                    </Badge>
-                  </div>
-                  <p className="text-sm text-muted-foreground">{result.message}</p>
+              {result.status === "pass" ? (
+                <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-success flex-shrink-0 mt-0.5" />
+              ) : result.status === "warning" ? (
+                <AlertTriangle className="w-4 h-4 sm:w-5 sm:h-5 text-warning flex-shrink-0 mt-0.5" />
+              ) : (
+                <XCircle className="w-4 h-4 sm:w-5 sm:h-5 text-destructive flex-shrink-0 mt-0.5" />
+              )}
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-1">
+                  <Badge variant="outline" className="text-xs flex-shrink-0">
+                    {result.category}
+                  </Badge>
+                  <span className="font-semibold text-sm sm:text-base text-foreground">{result.parameter}</span>
                 </div>
+                <p className="text-xs sm:text-sm text-muted-foreground">{result.message}</p>
               </div>
             </div>
           ))}
@@ -139,12 +144,11 @@ export const InspectionResults = ({
       <div className="flex justify-center">
         <Button 
           onClick={onReset}
-          size="lg"
           variant="gradient"
-          className="gap-2"
+          className="gap-2 w-full sm:w-auto"
         >
           <RotateCcw className="w-4 h-4" />
-          Start New Inspection
+          New Inspection
         </Button>
       </div>
     </div>

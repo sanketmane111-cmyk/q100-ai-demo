@@ -47,19 +47,18 @@ export const DemoContainer = () => {
   };
 
   return (
-    <section className="py-20 px-4">
+    <section className="py-12 sm:py-20 px-3 sm:px-4">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-foreground">
-          Interactive Product Demo
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-3 sm:mb-4 text-foreground">
+          Try the Demo
         </h2>
-        <p className="text-center text-muted-foreground mb-12">
-          Experience Q100.AI in action - upload a master image, select inspection parameters, 
-          and see real-time quality analysis
+        <p className="text-sm sm:text-base text-center text-muted-foreground mb-8 sm:mb-12 px-2">
+          Upload reference, select parameters, capture & analyze
         </p>
 
         <StepIndicator currentStep={currentStep} />
 
-        <div className="mt-12">
+        <div className="mt-8 sm:mt-12">
           {currentStep === "upload" && (
             <MasterImageUpload onUpload={handleMasterImageUpload} />
           )}
